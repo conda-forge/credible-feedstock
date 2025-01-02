@@ -1,13 +1,14 @@
+{% set python_min = '3.10' %}
 {% set name = "credible" %}
-{% set version = "1.0.1" %}
+{% set version = "1.0.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/credible-{{ version }}.tar.gz
-  sha256: 8c92ba3382d9658ca2815494d5a9a3b38448e127be5bd30394514fef454a88f5
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/credible-{{ version }}.tar.gz
+  sha256: a503a14c1816208788634461e3bbfa004761b1a1a5352af6974717fd202aac18
 
 build:
   noarch: python
@@ -16,12 +17,12 @@ build:
 
 requirements:
   host:
-    - python >=3.10
-    - setuptools >=61.0.0
-    - wheel
+    - python {{ python_min }}
+    - hatchling
+    - versioningit
     - pip
   run:
-    - python >=3.10
+    - python >={{ python_min }}
     - numpy
     - scipy
     - matplotlib-base
@@ -38,6 +39,7 @@ test:
   requires:
     - pip
     - pytest
+    - python {{ python_min }}
 
 about:
   home: https://pypi.org/project/credible/

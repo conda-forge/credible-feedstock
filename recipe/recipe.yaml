@@ -1,0 +1,61 @@
+schema_version: 1
+
+context:
+  python_min: 3.10
+  name: credible
+  version: 1.0.3
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/credible-${{ version }}.tar.gz
+  sha256: bf148a0ab61b7c5d7b02b8fe2df60c899f0ab1571abfb9f54fdcda0856c313c6
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python 3.10.*
+    - hatchling
+    - versioningit
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - numpy
+    - scipy
+    - matplotlib-base
+    - scikit-learn
+
+tests:
+  - python:
+      imports:
+        - credible
+      pip_check: true
+      python_version: ${{ python_min }}.*
+  - files:
+      source:
+        - tests
+    requirements:
+      run:
+        - pip
+        - pytest
+        - python ${{ python_min }}.*
+    script:
+      - pytest -sv tests
+
+about:
+  summary: This library contains implementations of some scikit-learn metrics with confidence intervals
+  license: GPL-3.0-only
+  license_file: LICENSES/GPL-3.0-or-later.txt
+  homepage: https://pypi.org/project/credible/
+  repository: https://gitlab.idiap.ch/biosignal/software/credible
+  documentation: https://credible.readthedocs.io
+
+extra:
+  recipe-maintainers:
+    - anjos

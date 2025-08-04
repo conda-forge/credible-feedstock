@@ -11,7 +11,7 @@ Summary: This library contains implementations of some scikit-learn metrics with
 
 Development: https://gitlab.idiap.ch/biosignal/software/credible
 
-Documentation: https://credible.readthedocs.io
+Documentation: https://credible.readthedocs.io/
 
 Current build status
 ====================

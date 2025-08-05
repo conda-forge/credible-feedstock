@@ -12,7 +12,7 @@ source:
   sha256: bf148a0ab61b7c5d7b02b8fe2df60c899f0ab1571abfb9f54fdcda0856c313c6
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
@@ -50,7 +50,7 @@ about:
   license: GPL-3.0-only
   license_file: LICENSES/GPL-3.0-or-later.txt
   homepage: https://pypi.org/project/credible/
-  repository: https://gitlab.idiap.ch/biosignal/software/credible
+  repository: https://gitlab.idiap.ch/medai/software/credible
   documentation: https://credible.readthedocs.io
 
 extra:

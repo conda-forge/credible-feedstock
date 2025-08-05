@@ -9,7 +9,7 @@ Package license: GPL-3.0-only
 
 Summary: This library contains implementations of some scikit-learn metrics with confidence intervals
 
-Development: https://gitlab.idiap.ch/biosignal/software/credible
+Development: https://gitlab.idiap.ch/medai/software/credible
 
 Documentation: https://credible.readthedocs.io/
 
